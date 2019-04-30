@@ -5,6 +5,9 @@ using UnityEngine;
 namespace SI
 {
     public class Bullet : MonoBehaviour {
+        public float Damage;
+        public bool EnemyBullet;
+        [Space]
         public Rigidbody2D Rig;
         public float Speed;
         public float DestroyTime = 5;
@@ -19,6 +22,26 @@ namespace SI
         void Update()
         {
             Rig.velocity = transform.TransformDirection(0, Speed, 0);
+        }
+
+        public void OnTriggerEnter2D(Collider2D C2D)
+        {
+            if (EnemyBullet)
+            {
+                if (C2D.GetComponent<MC>())
+                {
+                    CombatControl.Main.Defeat();
+                    Destroy(gameObject);
+                }
+            }
+            else
+            {
+                if (C2D.GetComponent<EnemyShip>())
+                {
+                    C2D.GetComponent<EnemyShip>().TakeDamage(Damage);
+                    Destroy(gameObject);
+                }
+            }
         }
     }
 }

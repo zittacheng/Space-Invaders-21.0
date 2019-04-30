@@ -5,6 +5,8 @@ using UnityEngine;
 namespace SI
 {
     public class MC : MonoBehaviour {
+        [HideInInspector]
+        public static MC Main;
         public Rigidbody2D Rig;
         public float Speed;
         [Space]
@@ -47,9 +49,10 @@ namespace SI
 
         public void Fire()
         {
-            GameObject G = Instantiate(BulletPrefab);
-            G.transform.position = FirePoint.transform.position;
             FireCoolDown = FireCoolRate;
+            GameObject G = Instantiate(BulletPrefab);
+            G.transform.eulerAngles = FirePoint.transform.eulerAngles;
+            G.transform.position = FirePoint.transform.position;
         }
     }
 }
