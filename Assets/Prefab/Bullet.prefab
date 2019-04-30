@@ -67,7 +67,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Rig: {fileID: 5781270706318592883}
-  Speed: 35
+  Speed: 45
+  DestroyTime: 5
 --- !u!1 &5781270707051665788
 GameObject:
   m_ObjectHideFlags: 0
