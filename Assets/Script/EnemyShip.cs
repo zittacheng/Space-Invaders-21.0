@@ -183,7 +183,7 @@ namespace SI
 
         public bool LimitCheck()
         {
-            return transform.position.x >= CombatControl.Main.RightLimit || transform.position.x <= CombatControl.Main.LeftLimit;
+            return (transform.position.x >= CombatControl.Main.RightLimit && SpeedScale > 0) || (transform.position.x <= CombatControl.Main.LeftLimit && SpeedScale < 0);
         }
 
         public bool CanFire()
