@@ -91,6 +91,7 @@ GameObject:
   - component: {fileID: 3646073017527222256}
   - component: {fileID: 842544784090709316}
   - component: {fileID: 5247852180433097336}
+  - component: {fileID: 7579099318885919085}
   m_Layer: 0
   m_Name: EnemyBullet_Slow
   m_TagString: Untagged
@@ -149,8 +150,9 @@ MonoBehaviour:
   Damage: 0
   EnemyBullet: 1
   Rig: {fileID: 3646073017527222256}
-  Speed: 17
+  Speed: 10
   DestroyTime: 40
+  ExplosionEffect: {fileID: 0}
 --- !u!58 &5247852180433097336
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -167,3 +169,22 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.9
+--- !u!95 &7579099318885919085
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5124881439043241072}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 989daa5921998a54e88797e0f987bb36, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

@@ -20,15 +20,7 @@ namespace SI
         public float StartSpeed;
         public float TargetPositionY;
         [Space]
-        public GameObject TurretPoint;
-        public List<GameObject> FirePoints;
-        public List<GameObject> BulletPrefabs;
-        [Space]
-        public float FireCoolRate;
-        public float FireCoolDown;
-        public int FireTime = 1;
-        public float FireTimeDelay;
-        [Space]
+        public List<Weapon> Weapons;
         public bool AlradyDead;
 
         // Start is called before the first frame update
@@ -38,6 +30,11 @@ namespace SI
             {
                 Starting = true;
                 TargetPositionY = transform.position.y - StartDistance;
+            }
+            else
+            {
+                foreach (Weapon W in Weapons)
+                    W.SetState(true);
             }
             StartCoroutine("SpeedProcess");
         }
@@ -56,20 +53,12 @@ namespace SI
                 {
                     SetSpeed(0, 0);
                     Starting = false;
+                    foreach (Weapon W in Weapons)
+                        W.SetState(true);
                 }
             }
 
-            if (CanFire())
-            {
-                if (FireCoolDown <= 0)
-                    Fire();
-                else
-                    FireCoolDown -= Time.deltaTime;
-            }
-
             UpdateSpeed();
-            if (MC.Main)
-                SpaceInvaderControl.Main.ChangeTransformDirection(TurretPoint.transform, MC.Main.transform.position - TurretPoint.transform.position);
 
             if (Life <= 0)
                 Death();
@@ -148,28 +137,6 @@ namespace SI
             Rig.velocity = Value;
         }
 
-        public void Fire()
-        {
-            FireCoolDown = FireCoolRate;
-            StartCoroutine("FireIE");
-        }
-
-        public IEnumerator FireIE()
-        {
-            for (int i = 0; i < FireTime; i++)
-            {
-                for (int j = FirePoints.Count - 1; j >= 0; j--)
-                {
-                    GameObject G = Instantiate(BulletPrefabs[j]);
-                    G.transform.position = FirePoints[j].transform.position;
-                    G.transform.eulerAngles = FirePoints[j].transform.eulerAngles;
-                    G.SetActive(true);
-                }
-                yield return new WaitForSeconds(FireTimeDelay);
-            }
-            yield return 0;
-        }
-
         public void TakeDamage(float Damage)
         {
             Life -= Damage;
@@ -177,6 +144,8 @@ namespace SI
 
         public void Death()
         {
+            foreach (Weapon W in Weapons)
+                W.SetState(false);
             AlradyDead = true;
             Destroy(gameObject);
         }
@@ -184,11 +153,6 @@ namespace SI
         public bool LimitCheck()
         {
             return (transform.position.x >= CombatControl.Main.RightLimit && SpeedScale > 0) || (transform.position.x <= CombatControl.Main.LeftLimit && SpeedScale < 0);
-        }
-
-        public bool CanFire()
-        {
-            return !AlradyDead && !Starting && MC.Main;
         }
     }
 }

@@ -10,11 +10,10 @@ namespace SI
         public Rigidbody2D Rig;
         public float Speed;
         [Space]
-        public GameObject FirePoint;
+        public List<GameObject> FirePoints;
+        public List<GameObject> BulletPrefabs;
         public float FireCoolRate;
         public float FireCoolDown;
-        [Space]
-        public GameObject BulletPrefab;
 
         // Start is called before the first frame update
         void Start()
@@ -50,9 +49,12 @@ namespace SI
         public void Fire()
         {
             FireCoolDown = FireCoolRate;
-            GameObject G = Instantiate(BulletPrefab);
-            G.transform.eulerAngles = FirePoint.transform.eulerAngles;
-            G.transform.position = FirePoint.transform.position;
+            for (int i = 0; i < FirePoints.Count; i++)
+            {
+                GameObject G = Instantiate(BulletPrefabs[i]);
+                G.transform.eulerAngles = FirePoints[i].transform.eulerAngles;
+                G.transform.position = FirePoints[i].transform.position;
+            }
         }
     }
 }

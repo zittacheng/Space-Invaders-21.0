@@ -11,6 +11,8 @@ namespace SI
         public Rigidbody2D Rig;
         public float Speed;
         public float DestroyTime = 5;
+        [Space]
+        public GameObject ExplosionEffect;
 
         // Start is called before the first frame update
         void Start()
@@ -31,6 +33,7 @@ namespace SI
                 if (C2D.GetComponent<MC>())
                 {
                     CombatControl.Main.Defeat();
+                    OnContact();
                     Destroy(gameObject);
                 }
             }
@@ -39,8 +42,19 @@ namespace SI
                 if (C2D.GetComponent<EnemyShip>())
                 {
                     C2D.GetComponent<EnemyShip>().TakeDamage(Damage);
+                    OnContact();
                     Destroy(gameObject);
                 }
+            }
+        }
+
+        public void OnContact()
+        {
+            if (ExplosionEffect)
+            {
+                GameObject G = Instantiate(ExplosionEffect);
+                G.transform.position = transform.position;
+                Destroy(G, 5);
             }
         }
     }

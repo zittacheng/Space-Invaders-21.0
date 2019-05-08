@@ -62,11 +62,13 @@
   <ItemGroup>
     <Compile Include="Assets\Script\Bullet.cs" />
     <Compile Include="Assets\Script\CombatControl.cs" />
+    <Compile Include="Assets\Script\Cutscene.cs" />
     <Compile Include="Assets\Script\EnemyShip.cs" />
     <Compile Include="Assets\Script\MC.cs" />
     <Compile Include="Assets\Script\SpaceInvaderControl.cs" />
     <Compile Include="Assets\Script\Wave.cs" />
     <Compile Include="Assets\Script\WaveControl.cs" />
+    <Compile Include="Assets\Script\Weapon.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>C:/U_Project/Space Invaders/Space-Invaders-21.0/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
