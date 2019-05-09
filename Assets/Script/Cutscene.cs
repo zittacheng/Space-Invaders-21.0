@@ -22,7 +22,9 @@ namespace SI
             if (Animating)
                 return;
 
-            if (Input.anyKeyDown)
+            if (Input.GetKeyDown(KeyCode.Escape))
+                Application.Quit();
+            else if (Input.anyKeyDown)
                 Anim.SetTrigger("Next");
             if (End && !AlreadyEnded)
             {

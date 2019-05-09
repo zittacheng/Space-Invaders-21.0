@@ -70,6 +70,7 @@
     <Compile Include="Assets\Script\LifeBarSpawn.cs" />
     <Compile Include="Assets\Script\LifeRenderer.cs" />
     <Compile Include="Assets\Script\MC.cs" />
+    <Compile Include="Assets\Script\SoundtrackLoop.cs" />
     <Compile Include="Assets\Script\SpaceInvaderControl.cs" />
     <Compile Include="Assets\Script\Wave.cs" />
     <Compile Include="Assets\Script\WaveControl.cs" />
