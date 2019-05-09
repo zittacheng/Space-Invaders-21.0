@@ -33,7 +33,7 @@ namespace SI
                     FireCoolDown -= Time.deltaTime;
             }
 
-            if (MC.Main)
+            if (MC.Main && TurretPoint)
                 SpaceInvaderControl.Main.ChangeTransformDirection(TurretPoint.transform, MC.Main.transform.position - TurretPoint.transform.position);
         }
 

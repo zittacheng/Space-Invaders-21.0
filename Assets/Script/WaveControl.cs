@@ -23,7 +23,10 @@ namespace SI
         void Update()
         {
             if (CurrentWave && CurrentWave.MainCheck() && !Processing)
+            {
+                Processing = true;
                 NextWave();
+            }
         }
 
         public void NextWave()
@@ -33,14 +36,18 @@ namespace SI
 
         public IEnumerator NextWaveIE()
         {
-            Processing = true;
             yield return new WaitForSeconds(0.5f);
-            GameObject G = Instantiate(GetWave().gameObject);
-            G.transform.position = CombatControl.Main.SpawnPosition.transform.position;
-            G.SetActive(true);
-            CurrentWave = G.GetComponent<Wave>();
-            WaveCount++;
-            Processing = false;
+            if (WaveCount < Waves.Count)
+            {
+                GameObject G = Instantiate(GetWave().gameObject);
+                G.transform.position = CombatControl.Main.SpawnPosition.transform.position;
+                G.SetActive(true);
+                CurrentWave = G.GetComponent<Wave>();
+                WaveCount++;
+                Processing = false;
+            }
+            else
+                SpaceInvaderControl.Main.Victory();
         }
 
         public void Retry()

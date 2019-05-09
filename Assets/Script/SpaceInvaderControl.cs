@@ -10,6 +10,8 @@ namespace SI
         public CombatControl CC;
         public WaveControl WC;
         public MC MainCharacter;
+        public Animator SceneFadeAnim;
+        public Animator VictoryAnim;
 
         public void Awake()
         {
@@ -50,6 +52,32 @@ namespace SI
                 if (Mathf.Abs(90 - T.eulerAngles.y) <= 0.01f || Mathf.Abs(-90 - T.eulerAngles.y) <= 0.01f)
                     T.eulerAngles = new Vector3(0, 0, 0);
             }
+        }
+
+        public void Retry()
+        {
+            StartCoroutine("RetryIE");
+        }
+
+        public IEnumerator RetryIE()
+        {
+            SceneFadeAnim.SetBool("Play", true);
+            yield return new WaitForSeconds(0.5f);
+            UnityEngine.SceneManagement.SceneManager.LoadSceneAsync("SampleScene");
+        }
+
+        public void Victory()
+        {
+            StartCoroutine("VictoryIE");
+        }
+
+        public IEnumerator VictoryIE()
+        {
+            VictoryAnim.SetBool("Play", true);
+            yield return new WaitForSeconds(3.5f);
+            SceneFadeAnim.SetBool("Play", true);
+            yield return new WaitForSeconds(0.5f);
+            UnityEngine.SceneManagement.SceneManager.LoadSceneAsync("Menu");
         }
     }
 }

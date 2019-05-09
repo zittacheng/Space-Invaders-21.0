@@ -20,6 +20,7 @@ namespace SI
         public float StartSpeed;
         public float TargetPositionY;
         [Space]
+        public GameObject TurretPoint;
         public List<Weapon> Weapons;
         public bool AlradyDead;
 
@@ -42,6 +43,9 @@ namespace SI
         // Update is called once per frame
         void Update()
         {
+            if (Life <= 0)
+                Death();
+
             if (Starting)
             {
                 if (transform.position.y > TargetPositionY)
@@ -60,8 +64,8 @@ namespace SI
 
             UpdateSpeed();
 
-            if (Life <= 0)
-                Death();
+            if (MC.Main && TurretPoint)
+                SpaceInvaderControl.Main.ChangeTransformDirection(TurretPoint.transform, MC.Main.transform.position - TurretPoint.transform.position);
         }
 
         public void UpdateSpeed()
@@ -139,6 +143,8 @@ namespace SI
 
         public void TakeDamage(float Damage)
         {
+            if (Starting)
+                return;
             Life -= Damage;
         }
 

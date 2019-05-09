@@ -11,9 +11,9 @@ namespace SI
         public float LeftLimit;
         public float RightLimit;
         [Space]
-        public bool Resetting;
         public GameObject MCPrefab;
         public GameObject MCSpawnPoint;
+        public int Life;
 
         public void Awake()
         {
@@ -36,27 +36,29 @@ namespace SI
         // Update is called once per frame
         void Update()
         {
-            if (Resetting && Input.GetButtonDown("Fire"))
-                Retry();
+
         }
 
         public void Retry()
         {
-            Resetting = false;
-            Ini();
-            WaveControl.Main.Retry();
+            if (Life > 0)
+            {
+                Life--;
+                Ini();
+            }
+            else
+                SpaceInvaderControl.Main.Retry();
         }
 
         public void Defeat()
         {
-            Destroy(MC.Main.gameObject);
             StartCoroutine("DefeatIE");
         }
 
         public IEnumerator DefeatIE()
         {
             yield return new WaitForSeconds(1);
-            Resetting = true;
+            Retry();
         }
     }
 }

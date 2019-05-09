@@ -32,7 +32,7 @@ namespace SI
             {
                 if (C2D.GetComponent<MC>())
                 {
-                    CombatControl.Main.Defeat();
+                    MC.Main.Death();
                     OnContact();
                     Destroy(gameObject);
                 }

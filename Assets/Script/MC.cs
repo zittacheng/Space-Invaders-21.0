@@ -7,6 +7,7 @@ namespace SI
     public class MC : MonoBehaviour {
         [HideInInspector]
         public static MC Main;
+        public Animator Anim;
         public Rigidbody2D Rig;
         public float Speed;
         [Space]
@@ -14,6 +15,8 @@ namespace SI
         public List<GameObject> BulletPrefabs;
         public float FireCoolRate;
         public float FireCoolDown;
+        [Space]
+        public bool Animating;
 
         // Start is called before the first frame update
         void Start()
@@ -42,7 +45,7 @@ namespace SI
             float b = v * Speed;
             Rig.velocity = new Vector2(a, b);
             FireCoolDown -= Time.deltaTime;
-            if (Input.GetButton("Fire") && FireCoolDown <= 0)
+            if (Input.GetButton("Fire") && FireCoolDown <= 0 && !Animating)
                 Fire();
         }
 
@@ -55,6 +58,14 @@ namespace SI
                 G.transform.eulerAngles = FirePoints[i].transform.eulerAngles;
                 G.transform.position = FirePoints[i].transform.position;
             }
+        }
+
+        public void Death()
+        {
+            Anim.SetBool("Death", true);
+            CombatControl.Main.Defeat();
+            Destroy(gameObject, 5);
+            Destroy(this);
         }
     }
 }
