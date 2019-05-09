@@ -22,15 +22,18 @@ namespace SI
             if (Animating)
                 return;
 
-            if (Input.GetKeyDown(KeyCode.Escape))
-                Application.Quit();
+            if (Input.GetKeyDown(KeyCode.Escape) && !AlreadyEnded)
+                Load();
             else if (Input.anyKeyDown)
                 Anim.SetTrigger("Next");
             if (End && !AlreadyEnded)
-            {
-                AlreadyEnded = true;
-                UnityEngine.SceneManagement.SceneManager.LoadSceneAsync("SampleScene");
-            }
+                Load();
+        }
+
+        public void Load()
+        {
+            AlreadyEnded = true;
+            UnityEngine.SceneManagement.SceneManager.LoadSceneAsync("SampleScene");
         }
     }
 }

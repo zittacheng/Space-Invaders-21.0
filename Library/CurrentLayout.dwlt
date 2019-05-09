@@ -111,10 +111,10 @@ MonoBehaviour:
     y: 30
     width: 1920
     height: 987
-  m_MinSize: {x: 681, y: 498}
+  m_MinSize: {x: 683, y: 498}
   m_MaxSize: {x: 14004, y: 14048}
   vertical: 0
-  controlID: 1107
+  controlID: 4885
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -136,10 +136,10 @@ MonoBehaviour:
     y: 0
     width: 1537
     height: 987
-  m_MinSize: {x: 404, y: 498}
+  m_MinSize: {x: 406, y: 498}
   m_MaxSize: {x: 10002, y: 14048}
   vertical: 1
-  controlID: 1046
+  controlID: 4822
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -161,10 +161,10 @@ MonoBehaviour:
     y: 0
     width: 1537
     height: 664
-  m_MinSize: {x: 404, y: 224}
-  m_MaxSize: {x: 8004, y: 4024}
+  m_MinSize: {x: 406, y: 224}
+  m_MaxSize: {x: 8006, y: 4024}
   vertical: 0
-  controlID: 1047
+  controlID: 4823
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -384,7 +384,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: ce5ffbffe25ffbff7e65fbff8865fbff8c65fbff7877fbff8c77fbff287dfbff327dfbff367dfbfff6f5ffff00f6ffffbcfbffff
+      m_ExpandedIDs: 64e9f2ff78e9f2ff28f1f2ff32f1f2ff36f1f2ff6c21faff6e85fbffbcfbffff603f0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -440,9 +440,9 @@ MonoBehaviour:
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 4.911268, y: -8.288622, z: -0.671875}
+    m_Target: {x: -17.931025, y: -7.348608, z: -1.9061754}
     speed: 2
-    m_Value: {x: 4.911268, y: -8.288622, z: -0.671875}
+    m_Value: {x: -17.931025, y: -7.348608, z: -1.9061754}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -474,9 +474,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 96.52167
+    m_Target: 219.81134
     speed: 2
-    m_Value: 96.52167
+    m_Value: 219.81134
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -871,20 +871,20 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Script
+    - Assets/Prefab/Ship
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Script
+  - Assets/Prefab/Ship
   m_LastFoldersGridSize: 16
   m_LastProjectPath: C:\U_Project\Space Invaders\Space-Invaders-21.0
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 66}
-    m_SelectedIDs: 64270000
-    m_LastClickedID: 10084
-    m_ExpandedIDs: 000000004626000090260000cc2700002a2a000000ca9a3b
+    m_SelectedIDs: ea270000
+    m_LastClickedID: 10218
+    m_ExpandedIDs: 000000004826000092260000ce2700002e2a000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -912,7 +912,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000004626000090260000cc2700002a2a000000ca9a3b
+    m_ExpandedIDs: 000000004826000092260000ce2700002e2a000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -995,7 +995,7 @@ MonoBehaviour:
   m_PersistentViewDataDictionary: {fileID: 0}
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: -137538
+  m_LastSelectedObjectID: 26386
 --- !u!114 &19
 MonoBehaviour:
   m_ObjectHideFlags: 52
